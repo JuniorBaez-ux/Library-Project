@@ -1,5 +1,5 @@
 let myLibrary = [];
-const getRow = document.getElementsByClassName("row");
+const getRow = document.getElementById("row");
 let bookNew = document.getElementById("newBook");
 let displayUpdate = document.getElementById("refresh");
 
@@ -24,44 +24,39 @@ myLibrary.push(book1);
 myLibrary.push(book2);
 myLibrary.push(book3);
 
-// function addBookToLibrary() {
-//     let title = document.getElementById("title").value;
-//     let author = document.getElementById("author").value;
-//     let pages = document.getElementById("pages").value;
-//     let read = document.getElementById("read").checked;
-//     let newBook = new books(title, author, pages, read);
-//     myLibrary.push(newBook);
-//     render();
-// }
+function addBookToLibrary() {
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let read = document.getElementById("read").checked;
+    let newBook = new books(title, author, pages, read);
+    myLibrary.push(newBook);
+    render();
+}
 
+
+//This function is used to display the books that we hace in the library
 function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
         let bookInfo = book.info();
-    //     let newcolumn = document.createElement("column");
-    //     newcolumn.className = "column";
-    //     getRow.appendChild(newcolumn);
-    //     let newDiv = document.createElement("card");
-    //     newRow.className = "card";
-    //     newRow.innerHTML = bookInfo;
-    //     newcolumn.appendChild(newRow);
-    // }
-        // let newcolumn = document.createElement("div");
-        // newcolumn.className = "column";
-        // getRow.appendChild(newcolumn);
-        let bookDiv = document.getElementsByClassName("card");
-        // newcolumn.appendChild(bookDiv);
-        let bookDivElement = document.createElement("card");
-        bookDivElement.classList.add("book");
-        bookDivElement.innerHTML = bookInfo;
-        bookDiv[i].appendChild(bookDivElement);
+        let newColumn = document.createElement("div");
+        newColumn.className = "column";
+        let newCard = document.createElement("div");
+        newCard.className = "card";
+        newColumn.appendChild(newCard);
+        getRow.appendChild(newColumn);
+        let bookDiv2 = document.getElementsByClassName("column");       
+        newCard.classList.add("book");
+        newCard.innerHTML = bookInfo;
+        bookDiv2[i].appendChild(newCard);
     }
 }
 
-// bookNew.addEventListener("click", addBookToLibrary()); {
-
-// };
-
 displayUpdate.addEventListener("click", displayBooks());{
+
+};
+
+bookNew.addEventListener("click", addBookToLibrary()); {
 
 };
