@@ -32,6 +32,24 @@ table{
   body {
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+  }
+
+  #ButtonsD{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+  }
   
   /* Float four columns side by side */
   .column {
