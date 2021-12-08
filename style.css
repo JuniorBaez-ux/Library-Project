@@ -1,3 +1,7 @@
+body{
+  background-color: #E4E4E4;
+}
+
 .Content{
     display: flex;
     align-items: center;
@@ -6,13 +10,37 @@
 }
 
 button{
+  display: flex;
+  flex-direction: row;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    margin-top: 100px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 4px;
+  gap: 20px;
+}
+
+#row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 table{
@@ -73,7 +101,9 @@ table{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
     text-align: center;
-    background-color: #f1f1f1;
+    background-color: #422040;
+    color: #ddd;
+    border-radius: 4px;
   }
   
   /* Responsive columns - one column layout (vertical) on small screens */
@@ -84,3 +114,58 @@ table{
       margin-bottom: 20px;
     }
   }
+
+/* The popup form - hidden by default */
+.Fields {
+  display: none;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+}
+
+/* Full-width input fields */
+input[type=text]{
+  width: auto;
+  padding: 15px;
+  margin: 8px 0;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #8980F5;
+  color: white;
+}
+
+/* When the inputs get focus, do something */
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.btn-cancel{
+  background-color: red;
+}
+
+.btn-cancel2{
+  display: flex;;
+  background-color: #F56476;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}

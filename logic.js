@@ -12,7 +12,7 @@ function books(title, author, pages, read) {
 
 books.prototype.info = function() {
     if (this.read === true)
-        return "Title: " + this.title + " By: " + this.author + " - " + this.pages + " pages  Read";
+        return this.title + " by " + this.author + " - " + this.pages + " pages - Read";
     else
         return this.title + " by " + this.author + " - " + this.pages + " pages - Not Read";
 }
@@ -31,12 +31,18 @@ function addBookToLibrary() {
     let read = document.getElementById("read").checked;
     let newBook = new books(title, author, pages, read);
     myLibrary.push(newBook);
-    render();
+    displayBooks();
+}
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    displayBooks();
 }
 
 
 //This function is used to display the books that we hace in the library
 function displayBooks() {
+    getRow.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
         let bookInfo = book.info();
@@ -49,14 +55,40 @@ function displayBooks() {
         let bookDiv2 = document.getElementsByClassName("column");       
         newCard.classList.add("book");
         newCard.innerHTML = bookInfo;
+        let newRemove = document.createElement("button");
+        newRemove.className = "btn-cancel2";
+        newRemove.innerHTML = "Remove";
+        newCard.appendChild(newRemove);
+        //Set a data attribute to the Card
+        newCard.setAttribute("data-index", i);
+        //get a data attribute to the Card
+        let index = newCard.getAttribute("data-index");
+        //Remove the book from the library
+        newRemove.addEventListener("click", function() {
+            removeBook(index);
+        });
+        let newRead = document.createElement("button");
+        newRead.className = "btn-read";
+        newRead.innerHTML = "Toggle Read";
+        newCard.appendChild(newRead);
         bookDiv2[i].appendChild(newCard);
     }
 }
 
-displayUpdate.addEventListener("click", displayBooks());{
+//This function is used to close the form
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
 
-};
+//This funciton is used to open the form
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
 
-bookNew.addEventListener("click", addBookToLibrary()); {
+displayUpdate.addEventListener("click", function(e){
+    displayBooks();
+});
 
-};
+bookNew.addEventListener("click",function(e){
+    openForm();
+});
