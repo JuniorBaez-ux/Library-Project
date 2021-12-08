@@ -25,13 +25,30 @@ myLibrary.push(book2);
 myLibrary.push(book3);
 
 function addBookToLibrary() {
-    let title = document.getElementById("title").value;
-    let author = document.getElementById("author").value;
-    let pages = document.getElementById("pages").value;
-    let read = document.getElementById("read").checked;
-    let newBook = new books(title, author, pages, read);
-    myLibrary.push(newBook);
-    displayBooks();
+    try {
+        let title = document.getElementById("title").value;
+        let author = document.getElementById("author").value;
+        let pages = document.getElementById("pages").value;
+        let read = document.getElementById("read").checked;
+        if (title === "" || author === "" || pages === "") {
+            throw "Please fill in all the fields";
+        }
+        else {
+            myLibrary.push(new books(title, author, pages, read));
+            displayBooks();
+            clearFields();
+            closeForm();
+        } 
+    } catch (error) {
+        alert("Please fill in all the fields");
+    }
+}
+
+function clearFields() {
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("pages").value = "";
+    document.getElementById("read").checked = false;
 }
 
 function removeBook(index) {
