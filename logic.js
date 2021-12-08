@@ -39,6 +39,10 @@ function removeBook(index) {
     displayBooks();
 }
 
+function toggleRead(index) {
+    myLibrary[index].read = !myLibrary[index].read;
+    displayBooks();
+}
 
 //This function is used to display the books that we hace in the library
 function displayBooks() {
@@ -71,6 +75,10 @@ function displayBooks() {
         newRead.className = "btn-read";
         newRead.innerHTML = "Toggle Read";
         newCard.appendChild(newRead);
+        //Toggle the read status of the book
+        newRead.addEventListener("click", function() {
+            toggleRead(index);
+        });
         bookDiv2[i].appendChild(newCard);
     }
 }
