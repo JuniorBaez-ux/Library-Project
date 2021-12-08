@@ -100,3 +100,5 @@ displayUpdate.addEventListener("click", function(e){
 bookNew.addEventListener("click",function(e){
     openForm();
 });
+
+document.onload = displayBooks();
