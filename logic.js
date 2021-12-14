@@ -2,19 +2,22 @@ let myLibrary = [];
 const getRow = document.getElementById("row");
 let bookNew = document.getElementById("newBook");
 let displayUpdate = document.getElementById("refresh");
+let saveButton = document.getElementById("btn-save");
+class books {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-function books(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-books.prototype.info = function() {
-    if (this.read === true)
+    info() {
+        if (this.read === true)
         return this.title + " by " + this.author + " - " + this.pages + " pages - Read";
     else
         return this.title + " by " + this.author + " - " + this.pages + " pages - Not Read";
+    }
+
 }
 
 const book1 = new books("The Hobbit", "J.R.R. Tolkien", 295, true);
