@@ -138,8 +138,23 @@ input[type=text]{
   color: white;
 }
 
+input[type=number]{
+  width: auto;
+  padding: 15px;
+  margin: 8px 0;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #8980F5;
+  color: white;
+}
+
 /* When the inputs get focus, do something */
 input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+input[type=number]:focus {
   border: 3px solid #555;
 }
 

@@ -25,10 +25,10 @@
             <label for="Author">Author:</label><br>
             <input type="text" id="author" name="author" required><br>
             <label for="Pages">Pages:</label><br>
-            <input type="text" id="pages" name="pages" required><br>
+            <input type="number" id="pages" name="pages" required pattern="[0-9]"><br>
             <input type="checkbox" id="read" name="read" value="read" required>
             <label for="vehicle1">Read</label><br>
-            <button type="button" class="btn" onclick="addBookToLibrary()">Save</button>
+            <button type="button" class="btn" onclick="validateAuthor(), validateTitle(), validatePages(), addBookToLibrary()">Save</button>
             <button type="button" class="btn-cancel" onclick="closeForm()">Close</button>
           </form>
         </div>
