@@ -2,6 +2,10 @@ let myLibrary = [];
 const getRow = document.getElementById("row");
 let bookNew = document.getElementById("newBook");
 let displayUpdate = document.getElementById("refresh");
+const author = document.getElementById("author");
+const title = document.getElementById("title");
+const pages = document.getElementById("pages");
+const read = document.getElementById("read");
 
 function books(title, author, pages, read) {
     this.title = title;
@@ -30,8 +34,12 @@ function addBookToLibrary() {
         let author = document.getElementById("author").value;
         let pages = document.getElementById("pages").value;
         let read = document.getElementById("read").checked;
-        if (title === "" || author === "" || pages === "") {
-            throw "Please fill in all the fields";
+        if (title === "") {
+            alert("Please fill in the title");
+        }else if (author === "") {
+            alert("Please fill in the author");
+        }else if (pages === "") {
+            alert("Please assign the number of pages");
         }
         else {
             myLibrary.push(new books(title, author, pages, read));
@@ -98,6 +106,42 @@ function displayBooks() {
         });
         bookDiv2[i].appendChild(newCard);
     }
+}
+
+//This part is in charge of doing the validations
+author.addEventListener('input', () => {
+    author.setCustomValidity('Inserte algo correcto');
+    author.checkValidity();
+  });
+
+  author.addEventListener("invalid", function(e){
+    if (author.value === "") {
+        author.setCustomValidity("Please fill in the author");
+    } else {
+        author.setCustomValidity("");
+    }
+});
+
+function validateTitle() {
+    title.addEventListener("input", function(e){
+        if (title.value === "") {
+            title.setCustomValidity("Please fill in the title");
+        }
+        else {
+            title.setCustomValidity("");
+        }
+    });
+}
+
+function validatePages() {
+    pages.addEventListener("input", function(e){
+        if (pages.value === "") {
+            pages.setCustomValidity("Please fill in the pages");
+        }
+        else {
+            pages.setCustomValidity("");
+        }
+    });
 }
 
 //This function is used to close the form
